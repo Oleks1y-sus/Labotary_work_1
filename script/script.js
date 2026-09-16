@@ -1,18 +1,22 @@
 
     // Завдання 1
-
-    const firstName = "Олексій"; 
+    const createNameBtn = document.getElementById('create-name-btn');
     const nameList = document.getElementById('name-list');
-
-    for (const char of firstName) {
-      const li = document.createElement('li');
-      li.textContent = char;
-      li.addEventListener('mouseenter', () => {
-        alert(char);
-      });
-
-      nameList.appendChild(li);
-    }
+    createNameBtn.addEventListener('click', () => {
+      const firstName = prompt("Введіть ваше ім'я:");
+      if (!firstName || !firstName.trim()) {
+        return;
+      }
+      nameList.innerHTML = '';
+      for (const char of firstName.trim()) {
+        const li = document.createElement('li');
+        li.textContent = char;
+        li.addEventListener('mouseenter', () => {
+          alert(char);
+        });
+        nameList.appendChild(li);
+      }
+    });
 
     // Завдання 2
     
@@ -38,21 +42,21 @@
     
     // Завдання 3
     
-    const lastName = "Дуда";
     const toggleBtn = document.getElementById('toggle-blocks-btn');
     const lettersContainer = document.getElementById('letters');
-
     toggleBtn.addEventListener('click', () => {
       if (lettersContainer.children.length > 0) {
         lettersContainer.innerHTML = '';
-        toggleBtn.textContent = 'Показати блоки';
       } else {
-        for (const char of lastName) {
-          toggleBtn.textContent = 'Сховати блоки';
+        const lastName = prompt("Введіть ваше прізвище:");
+        if (!lastName || !lastName.trim()) {
+          return;
+        }
+        for (const char of lastName.trim()) {
           const div = document.createElement('div');
           div.classList.add('letter-block');
           div.textContent = char;
-
+            
           div.addEventListener('mouseenter', () => {
             alert(`Це літера [ ${char} ]`);
           });
