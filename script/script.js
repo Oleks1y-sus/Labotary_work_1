@@ -3,7 +3,7 @@ function isValidName(str) {
   // Регулярний вираз перевіряє наявність українських, латинських літер, пробілів та дефісів
   const regex = /^[A-Za-zА-Яа-яЄєІіЇїҐґ\s\-]+$/;
   const firstChar = str[0];
-  if(firstChar === firstChar.toUpperCase() && firstChar !== firstChar.toLowerCase();){ // перевірка
+  if(firstChar === firstChar.toUpperCase() && firstChar !== firstChar.toLowerCase()){ // перевірка
   return regex.test(str.trim());
   }
 }
